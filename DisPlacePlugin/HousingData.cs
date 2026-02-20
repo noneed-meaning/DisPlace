@@ -49,14 +49,29 @@ namespace DisPlacePlugin
             _unitedDict = new Dictionary<uint, uint>();
             foreach (var row in unitedExteriorSheet)
             {
-                _unitedDict[row.Roof.RowId] = row.RowId;
-                _unitedDict[row.Walls.RowId] = row.RowId;
-                _unitedDict[row.Windows.RowId] = row.RowId;
-                _unitedDict[row.Door.RowId] = row.RowId;
-                _unitedDict[row.OptionalRoof.RowId] = row.RowId;
-                _unitedDict[row.OptionalWall.RowId] = row.RowId;
-                _unitedDict[row.OptionalSignboard.RowId] = row.RowId;
-                _unitedDict[row.Fence.RowId] = row.RowId;
+                if (row.Roof.RowId != 0)
+                    _unitedDict[row.Roof.RowId] = row.RowId;
+
+                if (row.Walls.RowId != 0)
+                    _unitedDict[row.Walls.RowId] = row.RowId;
+
+                if (row.Windows.RowId != 0)
+                    _unitedDict[row.Windows.RowId] = row.RowId;
+
+                if (row.Door.RowId != 0)
+                    _unitedDict[row.Door.RowId] = row.RowId;
+
+                if (row.OptionalRoof.RowId != 0)
+                    _unitedDict[row.OptionalRoof.RowId] = row.RowId;
+
+                if (row.OptionalWall.RowId != 0)
+                    _unitedDict[row.OptionalWall.RowId] = row.RowId;
+
+                if (row.OptionalSignboard.RowId != 0)
+                    _unitedDict[row.OptionalSignboard.RowId] = row.RowId;
+
+                if (row.Fence.RowId != 0)
+                    _unitedDict[row.Fence.RowId] = row.RowId;
             }
 
             _itemDict = DalamudApi.DataManager.GetExcelSheet<Item>()
